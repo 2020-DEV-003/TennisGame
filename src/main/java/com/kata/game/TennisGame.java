@@ -19,13 +19,12 @@ public class TennisGame {
 	 * @return String
 	 */
 	public String getScore(Player playerOne, Player playerTwo) {
-		String score = "";
 		int playerOneScore = playerOne.getScore();
 		int playerTwoScore = playerTwo.getScore();
 		if (isAll(playerOneScore, playerTwoScore)) {
-			score = Points.get(playerOneScore) + Status.ALL.value;
+			return Points.get(playerOneScore) + Status.ALL.value;
 		}
-		return score;
+		return Points.get(playerOneScore) + Constants.COMMA + Points.get(playerTwoScore);
 	}
 
 	private boolean isAll(int playerOneScore, int playerTwoScore) {

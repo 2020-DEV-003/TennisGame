@@ -51,4 +51,9 @@ public class TennisGameTest {
 		assertEquals(Constants.THIRTY_ALL, tennisGame.getScore(playerOne, playerTwo));
 	}
 
+	public void testPlayerOneWinsFirstBall() {
+		playerOne.setScore(Constants.ONE);
+		playerTwo.setScore(Constants.ZERO);
+		assertEquals("FIFTEEN,LOVE", tennisGame.getScore(playerOne, playerTwo));
+	}
 }

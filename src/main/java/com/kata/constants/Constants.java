@@ -18,4 +18,6 @@ public class Constants {
 	public static final String LOVE_ALL = "LOVE All";
 	public static final String FIFTEEN_ALL = "FIFTEEN All";
 	public static final String THIRTY_ALL = "THIRTY All";
+	public static final String COMMA = ",";
+
 }
