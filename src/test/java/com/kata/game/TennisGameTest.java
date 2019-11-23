@@ -52,45 +52,44 @@ public class TennisGameTest {
 		assertEquals(Constants.THIRTY_ALL, tennisGame.getScore(playerOne, playerTwo));
 	}
 
-	public void testPlayerOneWinsFirstBall() {
+	public void testGetScoreShouldReturnPlayerOneWinsFirstBall() {
 		playerOne.setScore(Constants.ONE);
 		playerTwo.setScore(Constants.ZERO);
 		assertEquals("FIFTEEN,LOVE", tennisGame.getScore(playerOne, playerTwo));
 	}
 
 	@Test
-	public void testPlayerOneWinsGame() {
+	public void testGetScoreShouldReturnPlayerOneWinsGame() {
 		playerOne.setScore(Constants.SIX);
 		playerTwo.setScore(Constants.ZERO);
 		assertEquals(Constants.PLAYER_ONE + Status.WINS.value, tennisGame.getScore(playerOne, playerTwo));
 	}
 
 	@Test
-	public void testPlayerTwoWinsGame() {
+	public void testGetScoreShouldReturnPlayerTwoWinsGame() {
 		playerOne.setScore(Constants.TWO);
 		playerTwo.setScore(Constants.SIX);
 		assertEquals(Constants.PLAYER_TWO + Status.WINS.value, tennisGame.getScore(playerOne, playerTwo));
 	}
 
 	@Test
-	public void testPlayersAreDeuce() {
+	public void testGetScoreShouldReturnDeuce() {
 		playerOne.setScore(Constants.FOUR);
 		playerTwo.setScore(Constants.FOUR);
 		assertEquals(Constants.DEUCE, tennisGame.getScore(playerOne, playerTwo));
 	}
+
 	@Test
-	public void testPlayerOneAdvantage() {
+	public void testGetScoreShouldReturnPlayerOneAdvantage() {
 		playerOne.setScore(Constants.FIVE);
 		playerTwo.setScore(Constants.FOUR);
-		assertEquals(Constants.PLAYER_ONE +" Advantage", tennisGame.getScore(playerOne, playerTwo));
+		assertEquals(Constants.PLAYER_ONE + Status.ADVANTAGE.value, tennisGame.getScore(playerOne, playerTwo));
 	}
 
 	@Test
-	public void testPlayerTwoAdvantage() {
+	public void testGetScoreShouldReturnPlayerTwoAdvantage() {
 		playerOne.setScore(Constants.FOUR);
 		playerTwo.setScore(Constants.FIVE);
-		assertEquals(Constants.PLAYER_TWO +" Advantage", tennisGame.getScore(playerOne, playerTwo));
+		assertEquals(Constants.PLAYER_TWO + Status.ADVANTAGE.value, tennisGame.getScore(playerOne, playerTwo));
 	}
-
-
 }

@@ -21,36 +21,52 @@ public class TennisGame {
 	public String getScore(Player playerOne, Player playerTwo) {
 		int playerOneScore = playerOne.getScore();
 		int playerTwoScore = playerTwo.getScore();
-
-		if (isWins(playerOneScore, playerTwoScore)) {
+		if (isWin(playerOneScore, playerTwoScore)) {
 			if (playerOneScore > playerTwoScore) {
 				return playerOne.getName() + Status.WINS.value;
 			} else {
 				return playerTwo.getName() + Status.WINS.value;
 			}
 		}
-		if (playerOneScore == playerTwoScore && playerOneScore >= Constants.THREE) {
+		if (isAdvantage(playerOneScore, playerTwoScore)) {
+			if (playerOneScore > playerTwoScore) {
+				return playerOne.getName() + Status.ADVANTAGE.value;
+			} else {
+				return playerTwo.getName() + Status.ADVANTAGE.value;
+			}
+		}
+		if (isDeuce(playerOneScore, playerTwoScore)) {
 			return Status.DEUCE.value;
 		}
-		if (playerOneScore > playerTwoScore && playerTwoScore >= Constants.THREE) {
-			return playerOne.getName() + Status.ADVANTAGE.value;
-		}
-		if (playerOneScore < playerTwoScore && playerOneScore >= Constants.THREE) {
-			return playerTwo.getName() + Status.ADVANTAGE.value;
-		}
-
 		if (isAll(playerOneScore, playerTwoScore)) {
 			return Points.get(playerOneScore) + Status.ALL.value;
 		}
 		return Points.get(playerOneScore) + Constants.COMMA + Points.get(playerTwoScore);
 	}
 
-	private boolean isWins(int playerOneScore, int playerTwoScore) {
-		boolean isAllFlag = false;
+	private boolean isWin(int playerOneScore, int playerTwoScore) {
+		boolean isWinFlag = false;
 		if (playerOneScore > 5 || playerTwoScore > 5) {
-			isAllFlag = true;
+			isWinFlag = true;
 		}
-		return isAllFlag;
+		return isWinFlag;
+	}
+
+	private boolean isAdvantage(int playerOneScore, int playerTwoScore) {
+		boolean isAdvFlag = false;
+		if ((playerOneScore > playerTwoScore && playerTwoScore >= Constants.THREE)
+				|| (playerOneScore < playerTwoScore && playerOneScore >= Constants.THREE)) {
+			isAdvFlag = true;
+		}
+		return isAdvFlag;
+	}
+
+	private boolean isDeuce(int playerOneScore, int playerTwoScore) {
+		boolean isDeuceFlag = false;
+		if (playerOneScore == playerTwoScore && playerOneScore >= Constants.THREE) {
+			isDeuceFlag = true;
+		}
+		return isDeuceFlag;
 	}
 
 	private boolean isAll(int playerOneScore, int playerTwoScore) {
@@ -59,7 +75,5 @@ public class TennisGame {
 			isAllFlag = true;
 		}
 		return isAllFlag;
-
 	}
-
 }

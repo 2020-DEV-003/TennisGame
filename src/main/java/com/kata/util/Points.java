@@ -33,5 +33,4 @@ public enum Points {
 	public static Points get(int point) {
 		return LOOKUP.get(point);
 	}
-
 }

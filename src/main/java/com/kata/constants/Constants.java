@@ -23,5 +23,4 @@ public class Constants {
 	public static final String DEUCE = "Deuce";
 	public static final int FOUR = 4;
 	public static final int FIVE = 5;
-
 }
