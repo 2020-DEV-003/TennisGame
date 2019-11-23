@@ -29,6 +29,15 @@ public class TennisGame {
 				return playerTwo.getName() + Status.WINS.value;
 			}
 		}
+		if (playerOneScore == playerTwoScore && playerOneScore >= Constants.THREE) {
+			return Status.DEUCE.value;
+		}
+		if (playerOneScore > playerTwoScore && playerTwoScore >= Constants.THREE) {
+			return playerOne.getName() + Status.ADVANTAGE.value;
+		}
+		if (playerOneScore < playerTwoScore && playerOneScore >= Constants.THREE) {
+			return playerTwo.getName() + Status.ADVANTAGE.value;
+		}
 
 		if (isAll(playerOneScore, playerTwoScore)) {
 			return Points.get(playerOneScore) + Status.ALL.value;

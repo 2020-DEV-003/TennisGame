@@ -60,16 +60,37 @@ public class TennisGameTest {
 
 	@Test
 	public void testPlayerOneWinsGame() {
-		playerOne.setScore(6);
-		playerTwo.setScore(0);
+		playerOne.setScore(Constants.SIX);
+		playerTwo.setScore(Constants.ZERO);
 		assertEquals(Constants.PLAYER_ONE + Status.WINS.value, tennisGame.getScore(playerOne, playerTwo));
 	}
 
 	@Test
 	public void testPlayerTwoWinsGame() {
-		playerOne.setScore(2);
-		playerTwo.setScore(6);
+		playerOne.setScore(Constants.TWO);
+		playerTwo.setScore(Constants.SIX);
 		assertEquals(Constants.PLAYER_TWO + Status.WINS.value, tennisGame.getScore(playerOne, playerTwo));
 	}
+
+	@Test
+	public void testPlayersAreDeuce() {
+		playerOne.setScore(Constants.FOUR);
+		playerTwo.setScore(Constants.FOUR);
+		assertEquals(Constants.DEUCE, tennisGame.getScore(playerOne, playerTwo));
+	}
+	@Test
+	public void testPlayerOneAdvantage() {
+		playerOne.setScore(Constants.FIVE);
+		playerTwo.setScore(Constants.FOUR);
+		assertEquals(Constants.PLAYER_ONE +" Advantage", tennisGame.getScore(playerOne, playerTwo));
+	}
+
+	@Test
+	public void testPlayerTwoAdvantage() {
+		playerOne.setScore(Constants.FOUR);
+		playerTwo.setScore(Constants.FIVE);
+		assertEquals(Constants.PLAYER_TWO +" Advantage", tennisGame.getScore(playerOne, playerTwo));
+	}
+
 
 }
