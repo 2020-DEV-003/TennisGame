@@ -1,0 +1,10 @@
+# Compiled class file
+*.class
+
+# Package Files #
+*.jar
+
+# Workspace Files #
+*.classpath
+*.idea
+*.settings
