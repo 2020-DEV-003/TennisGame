@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import com.kata.constants.Constants;
 import com.kata.model.Player;
+import com.kata.util.Status;
 
 /**
  * @author 2020-DEV-003 Description : This test class will unit test the
@@ -56,4 +57,19 @@ public class TennisGameTest {
 		playerTwo.setScore(Constants.ZERO);
 		assertEquals("FIFTEEN,LOVE", tennisGame.getScore(playerOne, playerTwo));
 	}
+
+	@Test
+	public void testPlayerOneWinsGame() {
+		playerOne.setScore(6);
+		playerTwo.setScore(0);
+		assertEquals(Constants.PLAYER_ONE + Status.WINS.value, tennisGame.getScore(playerOne, playerTwo));
+	}
+
+	@Test
+	public void testPlayerTwoWinsGame() {
+		playerOne.setScore(2);
+		playerTwo.setScore(6);
+		assertEquals(Constants.PLAYER_TWO + Status.WINS.value, tennisGame.getScore(playerOne, playerTwo));
+	}
+
 }

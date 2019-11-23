@@ -9,7 +9,7 @@ package com.kata.util;
  */
 public enum Status {
 
-	ALL(" All");
+	ALL(" All"), WINS(" Wins");
 	public final String value;
 
 	private Status(String value) {
