@@ -20,9 +20,21 @@ public class TennisGame {
 	 */
 	public String getScore(Player playerOne, Player playerTwo) {
 		String score = "";
-		if (playerOne.getScore() == Constants.ZERO && playerTwo.getScore() == Constants.ZERO) {
-			score = Points.get(Constants.ZERO) + Status.ALL.value;
+		int playerOneScore = playerOne.getScore();
+		int playerTwoScore = playerTwo.getScore();
+		if (isAll(playerOneScore, playerTwoScore)) {
+			score = Points.get(playerOneScore) + Status.ALL.value;
 		}
 		return score;
 	}
+
+	private boolean isAll(int playerOneScore, int playerTwoScore) {
+		boolean isAllFlag = false;
+		if (playerOneScore == playerTwoScore && playerOneScore < Constants.THREE) {
+			isAllFlag = true;
+		}
+		return isAllFlag;
+
+	}
+
 }

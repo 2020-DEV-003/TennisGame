@@ -11,7 +11,7 @@ import java.util.Map;
  */
 public enum Points {
 
-	LOVE(0);
+	LOVE(0), FIFTEEN(1), THIRTY(2), FORTY(3);
 
 	private static final Map<Integer, Points> LOOKUP = new HashMap<>();
 

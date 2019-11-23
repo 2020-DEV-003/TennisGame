@@ -31,10 +31,24 @@ public class TennisGameTest {
 	}
 
 	@Test
-	public void testNewTennisGameShouldReturnLoveAll() {
+	public void testGetScoreShouldReturnLoveAll() {
 		playerOne.setScore(Constants.ZERO);
 		playerTwo.setScore(Constants.ZERO);
 		assertEquals(Constants.LOVE_ALL, tennisGame.getScore(playerOne, playerTwo));
+	}
+
+	@Test
+	public void testGetScoreShouldReturnFifteenAll() {
+		playerOne.setScore(Constants.ONE);
+		playerTwo.setScore(Constants.ONE);
+		assertEquals(Constants.FIFTEEN_ALL, tennisGame.getScore(playerOne, playerTwo));
+	}
+
+	@Test
+	public void testGetScoreShouldReturnThirtyAll() {
+		playerOne.setScore(Constants.TWO);
+		playerTwo.setScore(Constants.TWO);
+		assertEquals(Constants.THIRTY_ALL, tennisGame.getScore(playerOne, playerTwo));
 	}
 
 }
