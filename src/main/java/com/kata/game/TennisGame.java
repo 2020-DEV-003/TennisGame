@@ -21,16 +21,27 @@ public class TennisGame {
 	public String getScore(Player playerOne, Player playerTwo) {
 		int playerOneScore = playerOne.getScore();
 		int playerTwoScore = playerTwo.getScore();
-		if (playerOneScore > 5) {
-			return playerOne.getName() + Status.WINS.value;
-		} else if (playerTwoScore > 5) {
-			return playerTwo.getName() + Status.WINS.value;
+
+		if (isWins(playerOneScore, playerTwoScore)) {
+			if (playerOneScore > playerTwoScore) {
+				return playerOne.getName() + Status.WINS.value;
+			} else {
+				return playerTwo.getName() + Status.WINS.value;
+			}
 		}
 
 		if (isAll(playerOneScore, playerTwoScore)) {
 			return Points.get(playerOneScore) + Status.ALL.value;
 		}
 		return Points.get(playerOneScore) + Constants.COMMA + Points.get(playerTwoScore);
+	}
+
+	private boolean isWins(int playerOneScore, int playerTwoScore) {
+		boolean isAllFlag = false;
+		if (playerOneScore > 5 || playerTwoScore > 5) {
+			isAllFlag = true;
+		}
+		return isAllFlag;
 	}
 
 	private boolean isAll(int playerOneScore, int playerTwoScore) {
