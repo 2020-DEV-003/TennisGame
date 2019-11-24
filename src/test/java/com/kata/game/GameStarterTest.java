@@ -50,9 +50,9 @@ public class GameStarterTest {
 			IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		playerOne.setScore(Constants.FIVE);
 		playerTwo.setScore(Constants.THREE);
-		Method method = GameStarter.class.getDeclaredMethod("setScore", String.class);
+		Method method = GameStarter.class.getDeclaredMethod("setScore", Player.class, Player.class);
 		method.setAccessible(true);
-		method.invoke(gameStarter, Constants.PLAYER_TWO);
+		method.invoke(gameStarter, playerTwo, playerOne);
 		assertTrue(playerOne.getScore() == Constants.FOUR);
 	}
 }

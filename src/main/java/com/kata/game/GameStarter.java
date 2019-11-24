@@ -39,10 +39,10 @@ public class GameStarter {
 			int randomNumber = (int) (Math.random() * 10);
 			if (randomNumber % 2 == 0) {
 				ballWinner = Constants.PLAYER_ONE;
-				setScore(Constants.PLAYER_ONE);
+				setScore(playerOne, playerTwo);
 			} else {
 				ballWinner = Constants.PLAYER_TWO;
-				setScore(Constants.PLAYER_TWO);
+				setScore(playerTwo, playerOne);
 			}
 			System.out.println(ballWinner + " wins the ball");
 			TennisGame game = new TennisGame();
@@ -54,41 +54,24 @@ public class GameStarter {
 
 	/**
 	 * @Description: This method sets the scores of the players after deciding the
-	 *               winner of every ball
-	 * @param winner: String
+	 *               winner of every ball. First argument is the winner of the ball.
+	 * @param player Player
+	 * @param otherPlayer Player
 	 */
-	private void setScore(String winner) {
-		if (winner.equalsIgnoreCase(Constants.PLAYER_ONE)) {
-			if (playerOne.getScore() == Constants.FOUR) {
-				playerOne.setScore(Constants.FIVE);
-				playerTwo.setScore(Constants.THREE);
-			} else if ((playerOne.getScore() == Constants.TWO && playerTwo.getScore() == Constants.THREE)
-					|| (playerOne.getScore() == Constants.THREE && playerTwo.getScore() == Constants.FIVE)) {
-				playerOne.setScore(Constants.FOUR);
-				playerTwo.setScore(Constants.FOUR);
-			} else if (playerOne.getScore() == Constants.THREE && playerTwo.getScore() != Constants.FIVE) {
-				playerOne.setScore(Constants.SIX);
-			} else if (playerOne.getScore() == Constants.FIVE) {
-				playerOne.setScore(Constants.SIX);
-			} else {
-				playerOne.setScore(playerOne.getScore() + 1);
-			}
+	private void setScore(Player player, Player otherPlayer) {
+		if (player.getScore() == Constants.FOUR) {
+			player.setScore(Constants.FIVE);
+			otherPlayer.setScore(Constants.THREE);
+		} else if ((player.getScore() == Constants.TWO && otherPlayer.getScore() == Constants.THREE)
+				|| (player.getScore() == Constants.THREE && otherPlayer.getScore() == Constants.FIVE)) {
+			player.setScore(Constants.FOUR);
+			otherPlayer.setScore(Constants.FOUR);
+		} else if (player.getScore() == Constants.THREE && otherPlayer.getScore() != Constants.FIVE) {
+			player.setScore(Constants.SIX);
+		} else if (player.getScore() == Constants.FIVE) {
+			player.setScore(Constants.SIX);
 		} else {
-			if (playerTwo.getScore() == Constants.FOUR) {
-				playerTwo.setScore(Constants.FIVE);
-				playerOne.setScore(Constants.THREE);
-			} else if ((playerTwo.getScore() == Constants.TWO && playerOne.getScore() == Constants.THREE)
-					|| (playerTwo.getScore() == Constants.THREE && playerOne.getScore() == Constants.FIVE)) {
-				playerOne.setScore(Constants.FOUR);
-				playerTwo.setScore(Constants.FOUR);
-			} else if (playerTwo.getScore() == Constants.THREE && playerOne.getScore() != Constants.FIVE) {
-				playerTwo.setScore(Constants.SIX);
-			} else if (playerTwo.getScore() == Constants.FIVE) {
-				playerTwo.setScore(Constants.SIX);
-			} else {
-				playerTwo.setScore(playerTwo.getScore() + 1);
-			}
-
+			player.setScore(player.getScore() + 1);
 		}
 	}
 
