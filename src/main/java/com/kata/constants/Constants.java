@@ -9,8 +9,8 @@ public class Constants {
 
 	}
 
-	public static final String PLAYER_ONE = "X";
-	public static final String PLAYER_TWO = "Y";
+	public static final String PLAYER_ONE = "PLAYER X";
+	public static final String PLAYER_TWO = "PLAYER Y";
 	public static final int ZERO = 0;
 	public static final int ONE = 1;
 	public static final int TWO = 2;
