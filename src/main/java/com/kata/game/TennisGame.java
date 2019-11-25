@@ -46,7 +46,7 @@ public class TennisGame {
 
 	private boolean isWin(int playerOneScore, int playerTwoScore) {
 		boolean isWinFlag = false;
-		if (playerOneScore > 5 || playerTwoScore > 5) {
+		if (playerOneScore > Constants.FIVE || playerTwoScore > Constants.FIVE) {
 			isWinFlag = true;
 		}
 		return isWinFlag;

@@ -36,8 +36,7 @@ public class GameStarter {
 		boolean gameEnds = false;
 		while (!gameEnds) {
 			String ballWinner = null;
-			int randomNumber = (int) (Math.random() * 10);
-			if (randomNumber % 2 == 0) {
+			if ((int) (Math.random() * 10) % 2 == 0) {
 				ballWinner = Constants.PLAYER_ONE;
 				setScore(playerOne, playerTwo);
 			} else {
@@ -55,7 +54,7 @@ public class GameStarter {
 	/**
 	 * @Description: This method sets the scores of the players after deciding the
 	 *               winner of every ball. First argument is the winner of the ball.
-	 * @param player Player
+	 * @param player      Player
 	 * @param otherPlayer Player
 	 */
 	private void setScore(Player player, Player otherPlayer) {

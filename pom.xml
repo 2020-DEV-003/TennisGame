@@ -55,6 +55,31 @@
 					<mainClass>com.kata.game.GameStarter</mainClass>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.pitest</groupId>
+				<artifactId>pitest-maven</artifactId>
+				<version>1.1.10</version>
+				<executions>
+					<execution>
+						<id>default-report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>mutationCoverage</goal>
+						</goals>
+						<configuration>
+							<targetClasses>
+								        
+								<param>com.kata.*</param>
+								       
+							</targetClasses>
+							<targetTests>
+								<param>com.kata.*</param>
+								       
+							</targetTests>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>
